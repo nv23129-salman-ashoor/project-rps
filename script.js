@@ -1,5 +1,6 @@
+//function to get the computers choice
 function getComputerChoice() {
-    const randomNumber = Math.random(); // Generates a number between 0 and 1
+    const randomNumber = Math.random(); 
     if (randomNumber < 0.33) {
         return "rock";
     } else if (randomNumber < 0.66) {
@@ -8,18 +9,15 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-
-// Step 3: Function to get the human's choice
+//function to get the humans choice
 function getHumanChoice() {
     const choice = prompt("Enter your choice (rock, paper, or scissors):");
     return choice.toLowerCase(); // Convert input to lowercase for consistency
 }
-
-// Step 4: Declare score variables
+//initialize the score variables
 let humanScore = 0;
 let computerScore = 0;
-
-// Step 5: Function to play a single round
+//Step 4 Function to play a single round
 function playRound(humanChoice, computerChoice) {
     // Make humanChoice case-insensitive
     humanChoice = humanChoice.toLowerCase();
@@ -38,8 +36,7 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
 }
-
-// Step 6: Function to play the entire game
+//function to play the entire game
 function playGame() {
     for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
