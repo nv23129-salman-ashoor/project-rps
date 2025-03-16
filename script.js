@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    const randomNumber = Math.random(); 
+    const randomNumber = Math.random(); // Generates a number between 0 and 1
     if (randomNumber < 0.33) {
         return "rock";
     } else if (randomNumber < 0.66) {
@@ -9,9 +9,9 @@ function getComputerChoice() {
     }
 }
 
-
+// Step 3: Function to get the human's choice
 function getHumanChoice() {
-    const choice = prompt("Enter your choice (R, P, or S):");
+    const choice = prompt("Enter your choice (rock, paper, or scissors):");
     return choice.toLowerCase(); // Convert input to lowercase for consistency
 }
 
@@ -27,9 +27,9 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         console.log("It's a tie!");
     } else if (
-        (humanChoice === "R" && computerChoice === "scissors") ||
-        (humanChoice === "P" && computerChoice === "rock") ||
-        (humanChoice === "S" && computerChoice === "paper")
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         console.log(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
         humanScore++;
@@ -39,7 +39,7 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-
+// Step 6: Function to play the entire game
 function playGame() {
     for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
