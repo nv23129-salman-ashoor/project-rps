@@ -1,4 +1,4 @@
-//function to get the computers choice
+//function to choose the computers choice
 function getComputerChoice() {
     const randomNumber = Math.random(); 
     if (randomNumber < 0.33) {
@@ -9,9 +9,9 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-//function to get the humans choice
+//function to choose the humans choice
 function getHumanChoice() {
-    const choice = prompt("Enter your choice (rock, paper, or scissors):");
+    const choice = prompt("Choose one rock, paper, or scissors:");
     return choice.toLowerCase(); // Convert input to lowercase for consistency
 }
 //initialize the score variables
@@ -23,16 +23,16 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
+        console.log("Its a tie");
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
+        console.log(`You win ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
         humanScore++;
     } else {
-        console.log(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`);
+        console.log(`You lose ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`);
         computerScore++;
     }
 }
