@@ -1,4 +1,4 @@
-//function to choose the computers choice
+// Function to choose the computer's choice
 function getComputerChoice() {
     const randomNumber = Math.random(); 
     if (randomNumber < 0.33) {
@@ -9,40 +9,53 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-//function to choose the humans choice
+
+// Function to choose the human's choice
 function getHumanChoice() {
-    const choice = prompt("Choose one rock, paper, or scissors:");
+    const choice = prompt("Choose one: rock, paper, or scissors:");
     return choice.toLowerCase(); // Convert input to lowercase for consistency
 }
-//initialize the score variables
+
+// Initialize the score variables
 let humanScore = 0;
 let computerScore = 0;
-//Step 4 Function to play a single round
+
+// Function to play a single round
 function playRound(humanChoice, computerChoice) {
     // Make humanChoice case-insensitive
     humanChoice = humanChoice.toLowerCase();
 
+    console.log(`Computer Choice: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`);
+    console.log(`Human Choice: ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}`);
+
     if (humanChoice === computerChoice) {
-        console.log("Its a tie");
+        console.log("Result: It's a tie");
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`You win ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
+        console.log(`Result: You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
         humanScore++;
     } else {
-        console.log(`You lose ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`);
+        console.log(`Result: You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`);
         computerScore++;
     }
+
+    // Log the current scores
+    console.log(`Scores: Human: ${humanScore}, Computer: ${computerScore}`);
+    console.log(''); // Add a blank line for better readability
 }
-//function to play the entire game
+
+// Function to play the entire game
 function playGame() {
     for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
+
+    // Final score display
     console.log(`Final Score: You - ${humanScore}, Computer - ${computerScore}`);
     if (humanScore > computerScore) {
         console.log("Congratulations! You are the overall winner!");
