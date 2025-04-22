@@ -47,6 +47,13 @@ function playRound(humanChoice, computerChoice) {
     console.log(''); // Add a blank line for better readability
 }
 
+// Function to play the entire game
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
 
 
     // Final score display
